@@ -75,6 +75,9 @@
                             <constraint firstItem="XvE-22-bec" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pgp-U5-Gpd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="HH8-Ix-ow7" id="PCF-k3-4f8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
