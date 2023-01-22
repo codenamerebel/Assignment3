@@ -47,10 +47,14 @@ class ViewController: UIViewController
         if(Int(hour)! < 12)
         {
             print("AM")
+            //  Check if background picture is currently the AM picture
+            //  If it is not than switch
         }
         else
         {
             print("PM")
+            //  Check if background picture is currently the PM picture
+            //  If it is not than switch
         }
 
     }
