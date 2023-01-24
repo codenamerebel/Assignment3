@@ -41,19 +41,28 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="feK-rR-Csv">
                                         <rect key="frame" x="0.0" y="200" width="393" height="559"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdq-b0-QtD">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="186.33333333333334"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdq-b0-QtD">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="139.66666666666666"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZo-uG-2jf">
-                                                <rect key="frame" x="0.0" y="186.33333333333331" width="393" height="186.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="139.66666666666669" width="393" height="140"/>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ0-3J-BRN">
-                                                <rect key="frame" x="0.0" y="372.66666666666663" width="393" height="186.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="279.66666666666663" width="393" height="139.66666666666663"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                                <connections>
+                                                    <action selector="startTimerWith_sender:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="B0W-gN-l5W"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-Pf-ADj">
+                                                <rect key="frame" x="0.0" y="419.33333333333337" width="393" height="139.66666666666663"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="STOP"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -76,7 +85,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countDownTimeLabel" destination="Qdq-b0-QtD" id="6RN-PJ-rRM"/>
                         <outlet property="currentTimeLabel" destination="HH8-Ix-ow7" id="PCF-k3-4f8"/>
+                        <outlet property="datePicker" destination="gZo-uG-2jf" id="Isj-F4-keI"/>
+                        <outlet property="startButton" destination="MZ0-3J-BRN" id="HmK-v0-jGJ"/>
+                        <outlet property="stopButton" destination="ct1-Pf-ADj" id="Qjb-Kj-1yR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,6 +103,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
