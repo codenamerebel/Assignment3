@@ -13,6 +13,7 @@
 		A27405E72978F5A2009ADE85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27405E52978F5A2009ADE85 /* Main.storyboard */; };
 		A27405E92978F5A5009ADE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27405E82978F5A5009ADE85 /* Assets.xcassets */; };
 		A27405EC2978F5A5009ADE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27405EA2978F5A5009ADE85 /* LaunchScreen.storyboard */; };
+		A2C104802981E59100C53224 /* mario.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A2C1047F2981E59100C53224 /* mario.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A27405E82978F5A5009ADE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A27405EB2978F5A5009ADE85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A27405ED2978F5A5009ADE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2C1047F2981E59100C53224 /* mario.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mario.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		A27405DE2978F5A2009ADE85 /* Assignment3 */ = {
 			isa = PBXGroup;
 			children = (
+				A2C1047F2981E59100C53224 /* mario.mp3 */,
 				A27405DF2978F5A2009ADE85 /* AppDelegate.swift */,
 				A27405E12978F5A2009ADE85 /* SceneDelegate.swift */,
 				A27405E32978F5A2009ADE85 /* ViewController.swift */,
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27405EC2978F5A5009ADE85 /* LaunchScreen.storyboard in Resources */,
+				A2C104802981E59100C53224 /* mario.mp3 in Resources */,
 				A27405E92978F5A5009ADE85 /* Assets.xcassets in Resources */,
 				A27405E72978F5A2009ADE85 /* Main.storyboard in Resources */,
 			);

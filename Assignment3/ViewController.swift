@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController
+class ViewController: UIViewController, AVAudioPlayerDelegate
 {
     
     @IBOutlet   var currentTimeLabel: UILabel!;
@@ -17,8 +18,10 @@ class ViewController: UIViewController
     @IBOutlet   var stopButton:UIButton!;
     
     
+    
     var endTime: Date?;
     var countDownTimer: Timer?;
+    var marioMusicPlayer: AVAudioPlayer!;
     
 
     override func viewDidLoad()
@@ -37,6 +40,19 @@ class ViewController: UIViewController
         //  Would this be better to throw on a background thread?  Not really worth it at the moment, but would be worth looking into in the future
         self.UpdateCurrentTime()
         Timer.scheduledTimer(timeInterval:1.0, target:self, selector: #selector(self.UpdateCurrentTime), userInfo:nil, repeats: true);
+        
+        
+        //  Initiate the Audio Player
+        let marioMusicPath = Bundle.main.path(forResource: "mario.mp3", ofType:nil)!;
+        do
+        {
+            self.marioMusicPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: marioMusicPath));
+            self.marioMusicPlayer.delegate = self;
+        }
+        catch
+        {
+            // Throw a message for the file not loading for some reason
+        }
         
     }
 
@@ -73,26 +89,9 @@ class ViewController: UIViewController
         }
 
     }
+       
     
-    
-    func pressedTimerButton( _send: UIButton)
-    {
-        //  Check state of button
-        
-        
-        
-        //  If it's in the Start state, start timer and change to Stop
-        //  Maybe I hide the picker?  Could be interesting
-        
-        
-        
-        //  If it's in the Stop state, stop timer and change to Start
-        
-    }
-    
-    
-    
-    @IBAction func startTimer( _sender: UIButton)
+    @IBAction func startTimer()
     {
         self.datePicker.isHidden=true;
         self.countDownTimeLabel.isHidden=false;
@@ -101,7 +100,7 @@ class ViewController: UIViewController
         
         
         
-        print( "Starting Timer ");
+
         let currentTime:Date = Date()
         
         var lengthOfTimer:TimeInterval = self.datePicker.countDownDuration;
@@ -110,15 +109,12 @@ class ViewController: UIViewController
         
         
         let interval:DateInterval = DateInterval.init(start: currentTime, end: timeAtTimerStop);
-     //   print(formatCountDownString(currentInterval: interval))
         self.endTime = timeAtTimerStop;
         self.countDownTimeLabel.text = formatCountDownString(currentInterval: interval)
         
         
         
         countDownTimer = Timer.scheduledTimer(timeInterval:1.0, target:self, selector: #selector(self.displayCountDownTime), userInfo:nil, repeats: true);
-       // displayCountDownTime(endTime: timeAtTimerStop)
-        
     }
     
     
@@ -135,39 +131,58 @@ class ViewController: UIViewController
     }
     
     
-    @objc func displayCountDownTime()
+    @objc func displayCountDownTime(_sender: UIButton?)
     {
         let currentTime:Date = Date()
-
-        
         
         if  (currentTime > self.endTime!)
         {
-            self.stopTimer();
+            self.timerEnds();
         }
         
         else
         {
             var interval:DateInterval = DateInterval.init(start: currentTime, end: self.endTime!);
             self.countDownTimeLabel.text = formatCountDownString(currentInterval: interval)
-            print(formatCountDownString(currentInterval: interval));
         }
-        
-        
-
     }
     
     
-    func stopTimer()
+    @IBAction func stopButton(_sender: UIButton?)
     {
         countDownTimer?.invalidate();
-        self.countDownTimeLabel.text = "TIMER STOP";
+        
+        //  Configure the GUI
         self.datePicker.isHidden=false;
         self.countDownTimeLabel.isHidden=true;
         self.startButton.isHidden=false;
         self.stopButton.isHidden=true;
+     
+        //  I guess I could always stop the player when this is called, but it takes a little extra processing to do that
+        //  I mean save those worthless cycles where you can right?
+        if(_sender != nil)
+        {
+            self.marioMusicPlayer.stop();
+        }
     }
     
 
+    func timerEnds()
+    {
+        //  Configure the GUI
+        self.marioMusicPlayer.play();
+        self.datePicker.isHidden=true;
+        self.countDownTimeLabel.isHidden=true;
+        self.startButton.isHidden=true;
+        self.stopButton.isHidden=false;
+    }
+    
+    //  Delete to reset everything once the music stops
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    {
+        self.stopButton(_sender: nil);
+    }
+    
+    
 }
 
