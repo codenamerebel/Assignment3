@@ -16,13 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nR4-Ph-fRL">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XvE-22-bec">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xun-In-z7l" userLabel="CurrentTimeView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HH8-Ix-ow7" userLabel="CurrentTimeLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HH8-Ix-ow7" userLabel="CurrentTimeLabel">
                                                 <rect key="frame" x="120.66666666666669" y="0.0" width="152" height="200"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <nil key="textColor"/>
@@ -82,11 +86,15 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XvE-22-bec" secondAttribute="bottom" id="FJh-ye-ZRK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XvE-22-bec" secondAttribute="trailing" id="H77-ZE-ch9"/>
+                            <constraint firstItem="nR4-Ph-fRL" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="RTJ-mD-tW1"/>
+                            <constraint firstItem="nR4-Ph-fRL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WGi-7f-jO9"/>
                             <constraint firstItem="XvE-22-bec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ivt-WC-7uV"/>
+                            <constraint firstItem="nR4-Ph-fRL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jdB-95-1SI"/>
+                            <constraint firstItem="nR4-Ph-fRL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="lSp-ei-ufh"/>
                             <constraint firstItem="XvE-22-bec" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pgp-U5-Gpd"/>
                         </constraints>
                     </view>
@@ -104,14 +112,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
