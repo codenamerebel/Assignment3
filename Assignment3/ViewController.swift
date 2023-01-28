@@ -16,7 +16,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
     @IBOutlet   var datePicker:UIDatePicker!;
     @IBOutlet   var startButton:UIButton!;
     @IBOutlet   var stopButton:UIButton!;
-    
+    @IBOutlet   var backgroundImage:UIImageView!;
     
     
     var endTime: Date?;
@@ -77,15 +77,22 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
         //  Need to update to change background picture
         if(Int(hour)! < 12)
         {
-         //   print("AM")
             //  Check if background picture is currently the AM picture
             //  If it is not than switch
+            //  Normally I would do a check if we already have this image or not
+            //  But I didn't want to either create a boolean to handle AM PM state
+            //  or subclass UIImage to let me pull out a name
+            self.backgroundImage.image = UIImage(named: "AMBackgroundImage");
         }
         else
         {
-        //    print("PM")
             //  Check if background picture is currently the PM picture
             //  If it is not than switch
+            //  Normally I would do a check if we already have this image or not
+            //  But I didn't want to either create a boolean to handle AM PM state
+            //  or subclass UIImage to let me pull out a name
+            self.backgroundImage.image = UIImage(named: "PMBackgroundImage");
+
         }
 
     }
@@ -98,9 +105,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
         self.startButton.isHidden=true;
         self.stopButton.isHidden=false;
         
-        
-        
-
         let currentTime:Date = Date()
         
         var lengthOfTimer:TimeInterval = self.datePicker.countDownDuration;
