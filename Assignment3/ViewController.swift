@@ -162,7 +162,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
         self.stopButton.isHidden=true;
      
         //  I guess I could always stop the player when this is called, but it takes a little extra processing to do that
-        //  I mean save those worthless cycles where you can right?
+        //  I mean save those worthless cycles where you can right?  Just ignore what I did with the AM/PM picture  :)
         if(_sender != nil)
         {
             self.marioMusicPlayer.stop();
