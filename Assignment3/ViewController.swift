@@ -81,7 +81,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
             //  If it is not than switch
             //  Normally I would do a check if we already have this image or not
             //  But I didn't want to either create a boolean to handle AM PM state
-            //  or subclass UIImage to let me pull out a name
+            //  or subclass UIImage to let me pull out a name so lazy wins
             self.backgroundImage.image = UIImage(named: "AMBackgroundImage");
         }
         else
@@ -90,7 +90,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
             //  If it is not than switch
             //  Normally I would do a check if we already have this image or not
             //  But I didn't want to either create a boolean to handle AM PM state
-            //  or subclass UIImage to let me pull out a name
+            //  or subclass UIImage to let me pull out a name so lazy wins
             self.backgroundImage.image = UIImage(named: "PMBackgroundImage");
 
         }
@@ -100,6 +100,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
     
     @IBAction func startTimer()
     {
+        //  Configure the stackview items for what's shown
         self.datePicker.isHidden=true;
         self.countDownTimeLabel.isHidden=false;
         self.startButton.isHidden=true;
@@ -107,7 +108,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
         
         let currentTime:Date = Date()
         
-        var lengthOfTimer:TimeInterval = self.datePicker.countDownDuration;
+        let lengthOfTimer:TimeInterval = self.datePicker.countDownDuration;
         
         let timeAtTimerStop:Date = Date.init(timeInterval: lengthOfTimer, since: currentTime);
         
@@ -115,8 +116,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
         let interval:DateInterval = DateInterval.init(start: currentTime, end: timeAtTimerStop);
         self.endTime = timeAtTimerStop;
         self.countDownTimeLabel.text = formatCountDownString(currentInterval: interval)
-        
-        
         
         countDownTimer = Timer.scheduledTimer(timeInterval:1.0, target:self, selector: #selector(self.displayCountDownTime), userInfo:nil, repeats: true);
     }
@@ -146,7 +145,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate
         
         else
         {
-            var interval:DateInterval = DateInterval.init(start: currentTime, end: self.endTime!);
+            let interval:DateInterval = DateInterval.init(start: currentTime, end: self.endTime!);
             self.countDownTimeLabel.text = formatCountDownString(currentInterval: interval)
         }
     }
